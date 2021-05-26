@@ -1,84 +1,76 @@
-set termout off
+connect scott/tiger
 define _editor=vi
-set serveroutput on size 1000000 format wrapped
+
 col object_name for a30
 col segment_name for a30
 col file_name for a40
-col name for a30
+col Name for a15
 col what for a30 word_wrapped
-col plan_plus_exp for a100 
-
-set trimspool on
-set long 5000
-set linesize 131
-set pagesize 0
+col plan_plus_exp for a100
+col global_name new_value gname
 
 define gname=idle
-col global_name new_value gname
 
 select lower(user) || '@' || 	substr(global_name, 1, decode(dot, 0, length(global_name), dot-1)) global_name
 	from (select global_name, instr(global_name, ' . ') dot from global_name );
 	
 set termout on
-
-
-
-REDEM set appinfo ON
-REDEM set appinfo "SQL*Plus"
-REDEM set arraysize 15
-REDEM set autocommit OFF
-REDEM set autoprint OFF
-REDEM set autorecovery OFF
-REDEM set autotrace off
-REDEM set blockterminator "."
-REDEM set cmdsep OFF
-REDEM set colsep " "
-REDEM set compatibility NATIVE
-REDEM set concat "."
-REDEM set copycommit 0
-REDEM set copytypecheck ON
-REDEM set define "&"
-REDEM set describe DEPTH 1 LINENUM OFF INDENT ON
-REDEM set markup HTML OFF SPOOL OFF ENTMAP ON PRE OFF
-REDEM set echo OFF
-REDEM set editfile "afiedt.buf"
-REDEM set embedded OFF
-REDEM set endbuftoken ""
-REDEM set escape OFF
-REDEM set feedback 6
-REDEM set flagger OFF
-REDEM set flush ON
-REDEM SET HEADING ON
-REDEM set headsep "|"
-REDEM SET LINESIZE 250
-REDEM set logsource ""
-REDEM set long 80
-REDEM set longchunksize 80
-REDEM set newpage 1
-REDEM set null ""
-REDEM set numformat ""
-REDEM set numwidth 10
-REDEM SET PAGESIZE 24
-REDEM set pause OFF
-REDEM set recsep WRAP
-REDEM set recsepchar " "
-REDEM SET SERVEROUTPUT ON size 1000000 format WORD_WRAPPED
-REDEM set shiftinout invisible
-REDEM set showmode OFF
-REDEM set sqlblanklines OFF
-REDEM set sqlcase MIXED
-REDEM set sqlcontinue "> "
-REDEM set sqlnumber ON
-REDEM set sqlprefix "#"
-REDEM set sqlprompt "SQL> "
-REDEM set sqlterminator ";"
-REDEM set suffix "sql"
-REDEM set tab ON
-REDEM set termout ON
-REDEM SET TIME ON
-REDEM SET TIMING ON
-REDEM SET TRIMOUT ON
-REDEM set trimspool OFF
-REDEM set underline "-"
-REDEM set verify ON
-REDEM set wrap ON
+set appinfo ON
+set appinfo "SQL*Plus"
+set arraysize 15
+set autocommit OFF
+set autoprint OFF
+set autorecovery OFF
+set autotrace off
+set blockterminator "."
+set cmdsep OFF
+set colsep " "
+set compatibility NATIVE
+set concat "."
+set copycommit 0
+set copytypecheck ON
+set define "&"
+set describe DEPTH 1 LINENUM OFF INDENT ON
+set markup HTML OFF SPOOL OFF ENTMAP ON PRE OFF
+set echo OFF
+set editfile "afiedt.buf"
+set embedded OFF
+set endbuftoken ""
+set escape OFF
+set feedback 6
+set flagger OFF
+set flush ON
+set HEADING ON
+set headsep "|"
+set LINESIZE 135
+set logsource ""
+set long 80
+set longchunksize 80
+set newpage 1
+set null ""
+set numformat ""
+set numwidth 10
+set PAGESIZE 100
+set pause OFF
+set recsep WRAP
+set recsepchar " "
+set SERVEROUTPUT ON size 1000000 format WORD_WRAPPED
+set shiftinout invisible
+set showmode OFF
+set sqlblanklines OFF
+set sqlcase MIXED
+set sqlcontinue "> "
+set sqlnumber ON
+set sqlprefix "#"
+set sqlprompt "SQL> "
+set sqlterminator ";"
+set suffix "sql"
+set tab ON
+set termout ON
+set TIME ON
+set TIMING ON
+set TRIMOUT ON
+set trimspool OFF
+set underline "-"
+set verify ON
+set wrap OFF
